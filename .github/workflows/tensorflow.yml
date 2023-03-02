@@ -5,12 +5,14 @@ on:
 jobs:
   build-tensorflow:
     strategy:
-      - context: tensorflow
-        dockerfile: Dockerfile
-        name: tensorflow-env
-      - context: tensorflow
-        dockerfile: Dockerfile.builder
-        name: tensorflow-builder
+      matrix:
+        include:
+          - context: tensorflow
+            dockerfile: Dockerfile
+            name: tensorflow-env
+          - context: tensorflow
+            dockerfile: Dockerfile.builder
+            name: tensorflow-builder
     uses: ./.github/workflows/build.yml
     with:
       context: ${{ matrix.context }}
