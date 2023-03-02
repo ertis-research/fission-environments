@@ -13,10 +13,10 @@ jobs:
         include:
           - context: tensorflow
             dockerfile: tensorflow/Dockerfile
-            name: tensorflow-env
+            name: ertis-research/tensorflow-env
           - context: tensorflow
             dockerfile: tensorflow/Dockerfile.builder
-            name: tensorflow-builder
+            name: ertis-research/tensorflow-builder
     uses: ./.github/workflows/build.yml
     with:
       context: ${{ matrix.context }}
