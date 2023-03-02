@@ -2,6 +2,10 @@ on:
   push:
     paths:
       - tensorflow
+    branches:
+      - "master"
+      - "main"
+      - "latest"
 jobs:
   build-tensorflow:
     strategy:
