@@ -12,10 +12,10 @@ jobs:
       matrix:
         include:
           - context: tensorflow
-            dockerfile: Dockerfile
+            dockerfile: tensorflow/Dockerfile
             name: tensorflow-env
           - context: tensorflow
-            dockerfile: Dockerfile.builder
+            dockerfile: tensorflow/Dockerfile.builder
             name: tensorflow-builder
     uses: ./.github/workflows/build.yml
     with:
