@@ -6,6 +6,9 @@ on:
       - "master"
       - "main"
       - "latest"
+  release:
+    types:
+      - created
 jobs:
   build-tensorflow:
     strategy:
