@@ -25,3 +25,4 @@ jobs:
       context: ${{ matrix.context }}
       dockerfile: ${{ matrix.dockerfile }}
       name: ${{ matrix.name }}
+      platforms: linux/amd64
