@@ -1,0 +1,28 @@
+on:
+  push:
+    paths:
+      - tensorflow-arm/**/*
+    branches:
+      - "master"
+      - "main"
+      - "latest"
+  release:
+    types:
+      - created
+jobs:
+  build-tensorflow:
+    strategy:
+      matrix:
+        include:
+          - context: tensorflow-arm
+            dockerfile: tensorflow-arm/Dockerfile
+            name: ertis-research/tensorflow-arm-env
+          - context: tensorflow-arm
+            dockerfile: tensorflow-arm/Dockerfile.builder
+            name: ertis-research/tensorflow-arm-builder
+    uses: ./.github/workflows/build.yml
+    with:
+      context: ${{ matrix.context }}
+      dockerfile: ${{ matrix.dockerfile }}
+      name: ${{ matrix.name }}
+      platforms: linux/arm64
