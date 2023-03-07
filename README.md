@@ -8,7 +8,7 @@ Additional environments and builders for [Fission](https://fission.io)
 # Usage
 
 Pick the desired image and version from our
-[releases page](https://github.com/ertis-research/fission-environments/packages)
+[packages page](https://github.com/ertis-research/fission-environments/packages)
 
 ```sh
 # For tensorflow linux/amd64
