@@ -7,6 +7,8 @@ COPY --from=fission/python-env-3.10:1.34.0 /app /app
 WORKDIR /app
 RUN sudo apt-get update -y && sudo apt-get install -y python3-dev libev-dev
 RUN pip3 install -r requirements.txt
+# Preload tensorflow
+RUN printf "%s\n%s" "import tensorflow" "$(cat server.py)" > server.py
 ENV PYTHONUNBUFFERED 1
 ENTRYPOINT ["python3"]
-CMD ["-c", "import tensorflow;import server"]
+CMD ["server.py"]
