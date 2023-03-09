@@ -8,7 +8,7 @@ WORKDIR /app
 RUN sudo apt-get update -y && sudo apt-get install -y python3-dev libev-dev
 RUN pip3 install -r requirements.txt
 # Preload tensorflow
-RUN printf "%s\n%s" "import tensorflow" "$(cat server.py)" > server.py
+RUN sudo sh -c 'printf "%s\n%s" "import tensorflow" "$(cat server.py)" > server.py'
 ENV PYTHONUNBUFFERED 1
 ENTRYPOINT ["python3"]
 CMD ["server.py"]
