@@ -16,3 +16,10 @@ fission env create --name 'my-env' \
   --image ghcr.io/ertis-research/tensorflow-builder:master \
   --builder ghcr.io/ertis-research/tensorflow-builder:master
 ```
+
+# Troubleshooting
+
+## `tensorflow` and `tensorflow-arm`: `ModuleNotFoundError: No module named 'XXX'`
+
+Don't forget to add a `__init__.py` to your function source code, as it is
+required to be considered a Python module module and to be loaded successfully
