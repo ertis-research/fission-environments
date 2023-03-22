@@ -1,6 +1,5 @@
-ARG DOCKER_TENSOR_TAG=2.11.0
 FROM python:3.10-buster
-RUN pip3 install tensorflow==${DOCKER_TENSOR_TAG}
+RUN pip3 install tensorflow==2.11.0
 
 COPY --from=fission/python-env-3.10:1.34.0 /app /app
 
