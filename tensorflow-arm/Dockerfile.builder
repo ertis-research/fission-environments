@@ -1,5 +1,7 @@
-ARG DOCKER_TENSOR_TAG=r23.02-tf-2.11.0-onednn-acl_threadpool
-FROM armswdev/tensorflow-arm-neoverse:${DOCKER_TENSOR_TAG}
+ARG DOCKER_TENSOR_TAG=2.11.0
+FROM python:3.10-buster
+RUN pip3 install tensorflow==${DOCKER_TENSOR_TAG}
+
 
 COPY --from=fission/python-builder-3.10:1.34.0 /usr/local/bin/build /usr/local/bin/build
 COPY --from=fission/python-builder-3.10:1.34.0 /builder /builder
